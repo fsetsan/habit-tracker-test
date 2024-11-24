@@ -1,0 +1,205 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  h1 {
+    margin-top: 20px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #heatmap-container {
+    display: grid;
+    grid-template-columns: repeat(52, 12px); /* 52 weeks */
+    grid-gap: 2px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+ /* Year navigation buttons */
+#year-controls {
+    margin: 10px;
+  }
+  
+  #year-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #display-year {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+ /* Current day highlight for light mode */
+.day.current-day {
+    border: 2px solid black; /* Pink border for light mode */
+    box-sizing: border-box;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode .day.current-day {
+    border: 2px solid black; /* Black border for dark mode */
+  }
+  
+  /* Button styles */
+  #year-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white; /* Default for light mode */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  /* Current day highlight for light mode */
+.day.current-day {
+    border: 2px solid black; /* Black border for both light and dark mode */
+    box-sizing: border-box;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode .day.current-day {
+    border: 2px solid black; /* Black border for dark mode */
+  }
+  
+  body.dark-mode #year-controls button {
+    background-color: gray; /* Dark mode buttons */
+    color: white; /* Ensure text is visible */
+  }
+ /* Default button styles (Light mode) */
+#year-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white; /* Light mode background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black; /* Text color for light mode */
+  }
+  
+  /* Dark mode button styles */
+  body.dark-mode #year-controls button {
+    background-color: gray; /* Gray background for dark mode */
+    color: white; /* Text color for dark mode */
+    border: 1px solid #555; /* Slightly darker border */
+  }
+   /* Default theme toggle button styles (Light mode) */
+#toggle-theme {
+    margin: 10px;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white; /* Light mode background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black; /* Text color for light mode */
+  }
+  
+  /* Dark mode theme toggle button styles */
+  body.dark-mode #toggle-theme {
+    background-color: gray; /* Gray background for dark mode */
+    color: white; /* White text color for dark mode */
+    border: 1px solid #555; /* Slightly darker border */
+  }
+   
+  
+  .day {
+    width: 12px;
+    height: 12px;
+    background-color: var(--default-color); /* Default color */
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  .day[data-level="0"] {
+    background-color: var(--default-color);
+  }
+  
+  .day[data-level="1"] {
+    background-color: #cce5ff; /* Light blue */
+  }
+  
+  .day[data-level="2"] {
+    background-color: #66b2ff; /* Medium blue */
+  }
+  
+  .day[data-level="3"] {
+    background-color: #005cbf; /* Dark blue */
+  }
+  
+  .day[data-level="4"] {
+    background-color: #003d80; /* Deep blue */
+  }
+  
+  /* Tooltip for displaying date */
+  .day:hover::after {
+    content: attr(data-date);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+  }
+  /* Highlight the current day */
+.day.current-day {
+    border: 2px solid black; /* Pink border for emphasis */
+    box-sizing: border-box; /* Ensure border doesn't affect size */
+  }
+  /* Button styles */
+#year-controls button {
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 20px; /* Larger font size for arrows */
+    cursor: pointer;
+    background-color: white; /* Light mode background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black; /* Text color */
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode #year-controls button {
+    background-color: gray; /* Gray background for dark mode */
+    color: white; /* White text */
+    border: 1px solid #555;
+  }
+  
+  
+  /* Theme Variables */
+  :root {
+    --bg-color: #f4f4f4;
+    --text-color: #000000;
+    --default-color: #e0e0e0;
+    --tooltip-bg: #333333;
+    --tooltip-text: #ffffff;
+  }
+  
+  .dark-mode {
+    --bg-color: #181818;
+    --text-color: #ffffff;
+    --default-color: #333333;
+    --tooltip-bg: #ffffff;
+    --tooltip-text: #000000;
+  }
+  
